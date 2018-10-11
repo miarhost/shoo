@@ -4,4 +4,4 @@
 
   resolve("Shoo") { [:shoo] }
   
-  end
+  end	
