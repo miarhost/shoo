@@ -9,4 +9,4 @@ to use this plugin add this line to your application_controller.rb:
 `include Redmine::Plugins::Shoo`
 *Start your server
 *Go to Edit page to config url you want tracked info to be sent to.
-
+![screenshot](assets/images/shoo.gif)
