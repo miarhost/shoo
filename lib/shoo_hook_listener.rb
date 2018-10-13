@@ -50,6 +50,11 @@ private
 
  end
 
+ def create_card
+ issue = Issue.find(context[:controller].params[:id])
+   @card = Trello::List.card.create( card_id )
+ end
+ 
  def character_count(string)
   string.split('').size
  end
