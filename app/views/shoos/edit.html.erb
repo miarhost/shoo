@@ -1,0 +1,9 @@
+<h1>Shoo Configs</h1>
+
+<%= form_for @config, url: shoo_path(@config) do |f| %>
+<%= f.text_field :webhook_url %>
+<%= f.submit 'Save' %>
+<% end %>
+
+
+ 

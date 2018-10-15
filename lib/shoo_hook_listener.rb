@@ -2,6 +2,8 @@ require 'net/http'
 
 class ShooHookListener < Redmine::Hook::Listener
 
+include Trello
+
  def shoo(context={})
   Rails.logger_info "::Shoo::"
 

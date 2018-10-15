@@ -1,7 +1,7 @@
-  Rails.application.routes.draw do
+ Rails.application.routes.draw do
 
-  resource :shoo
+  resource :shoo, only: [:create, :edit, :update]
 
-  resolve("Shoo") { [:shoo] }
+  resolve('Shoo') { [:shoo] }
   
-  end	
+ end	
