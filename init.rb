@@ -1,3 +1,4 @@
+require_dependency 'shoo_hook_listener'
 Redmine::Plugin.register :shoo do
   name 'Shoo plugin'
   author 'rghost'

@@ -2,10 +2,9 @@ require 'net/http'
 
 class ShooHookListener < Redmine::Hook::Listener
 
-include Trello
 
  def shoo(context={})
-  Rails.logger_info "::Shoo::"
+  Rails.logger.info "::Shoo::"
 
   controller = context[:request][:controller]
   action = context[:request][:action]
@@ -13,9 +12,9 @@ include Trello
 
   url = URI.parse(Shoo::Config.instance.webhook_url)
   res = Net:HTTP.post_form(url, 'data' => collect_data(from: comtext).to_json)
-  Rails.logger_info "Sending event data to #{url}..."
-  Rails.logger_info res.code
-  Rails.logger_info res.body
+  Rails.logger.info "Sending event data to #{url}..."
+  Rails.logger.info res.code
+  Rails.logger.info res.body
 
  end
 

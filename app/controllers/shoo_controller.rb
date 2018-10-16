@@ -1,6 +1,5 @@
 class ShooController < ApplicationController
 
-include Trello
 
 def edit
  @config = Shoo::Config.instance
