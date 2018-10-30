@@ -1,4 +1,5 @@
 require 'net/http'
+require 'trello'
 
 class ShooHookListener < Redmine::Hook::Listener
 
@@ -52,25 +53,13 @@ private
  end
 
  def create_card
+  boards = Trello::Board.all
  issue = Issue.find(context[:controller].params[:id])
    @card = Trello::List.card.create( card_id )
- end
- 
- def character_count(string)
-  string.split('').size
- end
-
- def word_count(string)
-  string.split(/[\s,.-]/).size
- end
-
- def most_used_character(string)
-   characters = string.split('') - [' ', ',', '.', '-']
-
-   freqs = characters.inject({}) do |freqs, char|
- 	freqs.merge({char => characters.count(char)})
-   end
-   freqs.max_by { |char,times_used| times_used }.first
+    board = Trello::Board.find(project.trello_board_id.strip)
+         list_mapping = Hash[JSON.load(issue.trello_list_mapping).map { |k, v| [k.to_i, v.to_s] }]
+     list_id = list_mapping[issue.status.id]
+list_id = list_mapping[issue.status.id]
  end
 
 end
